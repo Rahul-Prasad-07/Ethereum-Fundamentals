@@ -95,3 +95,21 @@ Now, let’s look at how a transaction is processed and how Gas is consumed.
   - Hence, the calculations to gauge how much Gas would be needed for each transaction need to be done correctly, else your transaction would fail and you would also lose the Gas that you sent with the transaction.
   - Gas is not only used to pay for computation steps, it is also used to pay for storage use. So, a sender also needs to pay a fee for storage use.
       
+### Ethereum Accounts
+
+Remember you were told how Ethereum is a `state transition machine`. 
+
+Accounts in Ethereum are stored in a global 'shared state' in the form of key-value pairs. The list of all these key-value pairs representing accounts defines the state of Ethereum at that point. 
+
+In a key-value pair, the key is a 20-byte string which is usually the public key of the account. Value, on the other hand, represents the state of the account. Value is a structure with four values: Nonce, StorageRoot (Storage Hash), CodeHash, Balance.
+
+Every Ethereum account has a key which is its 20-byte unique identifier, and the value is a state which consists of four components, which are present regardless of the type of account :
+
+  - Nonce: If the account is an externally owned account, this number represents the number of transactions sent from the account’s address. If the account is a contract account, the nonce is the number of contracts created by the account.
+  - Balance: This is the number of Wei owned by an address. There are 10^18 Wei per Ether.
+  - StorageRoot (Storage Hash): This is a hash of the root node of a Merkle tree that encodes the hash of the storage contents of an account.
+  - codeHash: This is the hash of the EVM (Ethereum Virtual Machine ) code of this account. For contract accounts, this is the code that gets hashed and stored as the codeHash. For externally owned accounts, the codeHash field is the hash of the empty string.
+
+There are two types of accounts in Ethereum : 
+  - **Externally Owned Accounts (EOA)**, which are controlled by private keys and have no code associated with them. 
+  - **Contract Accounts (CA)**, which are controlled by their contract code and have a code associated with them.

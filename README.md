@@ -49,3 +49,17 @@ Today, Ethereum hosts more than 90% of the new tokens on its platforms. The poin
 - This list of all accounts defines the state of Ethereum at that moment. Whenever a transaction occurs between two accounts, the state of those two accounts changes and, hence, the state of the entire list changes. This new state now becomes the current state of the Ethereum. 
 
 The transactions are stored on the blockchain, thus ensuring the immutability of the states of accounts which are stored off-chain. This can be a little confusing at the moment. But don’t worry - we will look into the details of the state transition model at later stages.
+
+### Architecture overview
+
+In the previous segment, you got a brief introduction to Ethereum.thereum is a transaction-based `‘State Transition Machine’`, which changes to a new state with each new transaction. This explanation will get clearer as you learn the architecture of Ethereum.
+
+The Blockchain network can be broadly classified into the following layers:
+
+ - **Storage layer** : Any kind of data created can be stored in a basic file system or a database. Usually, Ethereum uses databases such as LevelDB or RockDB to store the state of the whole network and other data.
+ - **Network layer** : Information like transactions are sent from one node to another in a Blockchain network. This can be done using different messaging protocols. In Ethereum, we use a protocol called JSON - RPC to communicate between nodes.
+ - **Protocol layer** : Data and network layers are present in any normal network. How do we make out the difference between any network and a Blockchain network? This is defined by the protocol layer. This layer is majorly composed of the consensus protocols of the Blockchain network.
+ - **Application layer** : This is the layer which differentiates between Bitcoin and Ethereum. The application layer defines the various kinds of conditions that can be written on top of the three layers for any particular application. It includes smart contracts which define what your application logic can be.
+ 
+  ![image](https://user-images.githubusercontent.com/101723031/196796289-61bf5dc1-cf2d-40a2-950c-d2d47fcda801.png)
+

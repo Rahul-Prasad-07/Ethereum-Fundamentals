@@ -63,3 +63,35 @@ The Blockchain network can be broadly classified into the following layers:
  
   ![image](https://user-images.githubusercontent.com/101723031/196796289-61bf5dc1-cf2d-40a2-950c-d2d47fcda801.png)
 
+### Ether and Gas
+
+To understand Ethereum at a granular level, you need to understand its core components like the network currency, the transaction process, how a block is added to the network and many more. Let’s start by looking at Ether and Gas - the cryptocurrency and transaction cost of the Ethereum network, respectively. Let’s delve deep into the core components: Ether and Gas.
+
+#### Ether 
+ - Ether is the currency internal to Ethereum used to pay transaction fees to miners. 
+ - Don’t confuse this with rewards and transaction fees. Those are two separate entities.
+ - A miner is rewarded when its block gets selected in the blockchain. However, a miner is not only rewarded on mining the block successfully but also receives a transaction fee for each transaction in the block that it mines.
+ - Rewards are given by the system or the Blockchain while the transaction fee is paid by the user who performed that transaction.
+ - In Ethereum, there is a defined process to calculate the transaction fee. For example, if current Ether reward for mining a block is 2 Ethers. Hence, on mining a block, a miner receives 2 Ethers + the transaction fee for each transaction in the block.
+
+#### Gas
+ - The transaction fee is calculated by measuring the amount of computational power spent by a miner in running that particular transaction.
+ - These computational cycles are measured in a unit called Gas. In other words, Gas is the unit used to measure the fees required for a computation.
+ - For each Gas that the miner spends to run a transaction, it is paid in Ethers. This is called the Gas Price.
+ - So, gas price is the number of Ethers paid per unit of Gas spent by the miner for running a transaction. This gas price is paid by the sender of the transaction to the miner. Gas price is measured in the unit Gwei. Just like Bitcoin, Ether also has multiple denominations. The smallest unit in Ether is Wei.
+ 
+        `1 Gwei = 10^9  Wei`
+        
+        `1 Ether = 10^18 Wei`
+ 
+We learnt about Gas and Gas price. How does Ethereum ensure that the miner is not spending more Gas than required?
+
+The answer is **Gas Limit**. The Gas Limit for a transaction is defined as the maximum amount of Gas required to run a particular transaction. Hence, the `transaction limit = Gas Limit x Gas Price`.
+
+Now, let’s look at how a transaction is processed and how Gas is consumed.
+  - Gas price and Gas limit are set by the sender for every transaction.
+  - If excess Gas remains, it is returned to the sender.
+  - And if all the Gas is consumed before the transaction is completed, then the transaction fails due to the shortage of Gas and no Gas is returned to the sender.
+  - Hence, the calculations to gauge how much Gas would be needed for each transaction need to be done correctly, else your transaction would fail and you would also lose the Gas that you sent with the transaction.
+  - Gas is not only used to pay for computation steps, it is also used to pay for storage use. So, a sender also needs to pay a fee for storage use.
+      

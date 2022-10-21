@@ -159,22 +159,40 @@ In Ethereum, the values of all the accounts are maintained independently by each
 of the nodes inside the network. And they are all maintained logically as a single 
 shared state:
 
-- All of the accounts capture the snapshot of the blockchain at any particular 
+   - All of the accounts capture the snapshot of the blockchain at any particular 
 point in time and that goes to every block as an entity.
-- Whenever a new block is created, a state root is stored in the header of that 
+   - Whenever a new block is created, a state root is stored in the header of that 
 block.
 State root is the Merkle root of all the accounts at that moment. Simply put, 
 all the key–value pairs that represent an account together, form a Merkle 
 tree is known as state root.
-- This state root is captured by a block at the time of its creation.
-- Any change in the data would lead to the calculation of the Merkle tree all 
+   - This state root is captured by a block at the time of its creation.
+   - Any change in the data would lead to the calculation of the Merkle tree all 
 over again to match the state root in the block. This is highly impossible, and 
 hence the immutability is maintained in the network. Along with state root, 
 the transaction root and the receipt root are also used to capture the state 
 of the network in every block.
-- By calculating and storing the roots mentioned above, Ethereum captures 
+   - By calculating and storing the roots mentioned above, Ethereum captures 
 the network state every time a new block is created (state root, transaction 
 root and receipt root).
+
+
+### Transactions in Ethereum
+
+The various components of a transaction, which are as follows : 
+   - **nonce** : A count of the number of transactions sent by the sender.
+   - **gasPrice** : The number of Wei that the sender is willing to pay per unit of Gas required to execute the transaction.
+   - **to** : The address of the recipient. In a contract-creation transaction, an empty value is used.
+   - **value** : The amount of Wei to be transferred from the sender to the recipient. In a contract-creating transaction, this value serves as the starting balance within the newly created contract account.
+   - **v, r, s** : Used to generate the signature that identifies the sender of the transaction.
+   - **init** : An EVM code fragment that is used to initialize the new contract account.
+   - **data** : The input data (i.e., parameters) of the message call. Every type of transaction has all the above components.
+  
+Let’s now look at the different types of transactions in Ethereum.
+
+- **Message Calls** : These are the internal transactions from EOA to CA or from one CA to some other CA. When one contract sends a message to another contract, the associated code that exists on the recipient contract account is executed.
+- **Value Transfer** : Transfer from one EOA to another EOA.
+- **Contract Creation Calls** : They are initiated by EOAs, and the recipient's address is kept empty. Such transactions create a new contract account and, hence, are used to create and install new Ethereum contracts.
 
 
 

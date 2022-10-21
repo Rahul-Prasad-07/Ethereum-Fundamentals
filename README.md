@@ -45,6 +45,9 @@ Today, Ethereum hosts more than 90% of the new tokens on its platforms. The poin
 #### What is Ethereum ?
 
 - The Ethereum blockchain is essentially a transaction-based **state machine**. In Computer Science, a state machine refers to something that will read a series of inputs and, based on those inputs, will transition to a new state.
+   
+   ![image](https://user-images.githubusercontent.com/106796537/197262211-c82758b3-6349-422d-bca5-c62e032ca372.png)
+
 - The Ethereum blockchain starts from the genesis (first) state, and after every transaction, the state of the entire blockchain changes. Unlike Bitcoin, which follows the UTXO model and stores everything on the chain, Ethereum stores all accounts off-chain. 
 - This list of all accounts defines the state of Ethereum at that moment. Whenever a transaction occurs between two accounts, the state of those two accounts changes and, hence, the state of the entire list changes. This new state now becomes the current state of the Ethereum. 
 
@@ -80,13 +83,15 @@ To understand Ethereum at a granular level, you need to understand its core comp
  - For each Gas that the miner spends to run a transaction, it is paid in Ethers. This is called the Gas Price.
  - So, gas price is the number of Ethers paid per unit of Gas spent by the miner for running a transaction. This gas price is paid by the sender of the transaction to the miner. Gas price is measured in the unit Gwei. Just like Bitcoin, Ether also has multiple denominations. The smallest unit in Ether is Wei.
  
-        `1 Gwei = 10^9  Wei`
-        
-        `1 Ether = 10^18 Wei`
- 
+      - 1 Gwei = 10^9 wei
+      - 1 Ether = 10^18 wei
+
 We learnt about Gas and Gas price. How does Ethereum ensure that the miner is not spending more Gas than required?
 
 The answer is **Gas Limit**. The Gas Limit for a transaction is defined as the maximum amount of Gas required to run a particular transaction. Hence, the `transaction limit = Gas Limit x Gas Price`.
+
+![image](https://user-images.githubusercontent.com/106796537/197263356-ef3bf176-1c2d-4fbb-bf9b-a5e6888174a3.png)
+
 
 Now, let’s look at how a transaction is processed and how Gas is consumed.
   - Gas price and Gas limit are set by the sender for every transaction.

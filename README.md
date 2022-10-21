@@ -194,6 +194,25 @@ Let’s now look at the different types of transactions in Ethereum.
 - **Value Transfer** : Transfer from one EOA to another EOA.
 - **Contract Creation Calls** : They are initiated by EOAs, and the recipient's address is kept empty. Such transactions create a new contract account and, hence, are used to create and install new Ethereum contracts.
 
+### Block Anatomy
+
+All transactions are grouped together into 'blocks'. A blockchain contains a series of such blocks that are chained together. A block consists of :
+      - The block header 
+      - The set of transactions included in that block 
+      - A set of other block headers for the current block’s ommers.
+      
+A block header in Ethereum is quite similar to a block’s in Bitcoin, and apart from components like Parent Hash, nonce, Difficulty, mix hash, Timestamp, it also contains Gas used to mine that block and the Gas limit defined for that block.
+
+Every block header also contains three important Trie structures for :
+ -  state (state Root): Merkle root of the current state of all the accounts
+ -  transactions (transactions Root): Merkle root of all the transactions mined in that block
+ -  receipts (receipts Root): Merkle root of the receipts for all the transactions in that block. A receipt is issued by the network/system whenever a transaction is committed; hence, the receipts for all the transactions in the block will form a Merkle tree, and its root is called the receiptsRoot.
+ 
+These three roots together define the state of the Blockchain network at any given time.
+
+Whenever a new block is created, the network state is captured using these three roots. 
+
+Hence, we can say that at the creation of every new block, the network state changes and the new state is defined by state Root, transaction Root and receipts Root at that instance.
 
 
 

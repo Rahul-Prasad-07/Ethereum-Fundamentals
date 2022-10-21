@@ -118,3 +118,65 @@ Every Ethereum account has a key which is its 20-byte unique identifier, and the
 There are two types of accounts in Ethereum : 
   - **Externally Owned Accounts (EOA)**, which are controlled by private keys and have no code associated with them. 
   - **Contract Accounts (CA)**, which are controlled by their contract code and have a code associated with them.
+
+1. **Externally Owned Accounts (EOAs)**: These are combinations of public addresses 
+and private keys, and there is no code associated with them. You can use these 
+accounts to: 
+● Send and receive Ether to/from another account, and
+● Send transactions to smart contracts.
+
+2. **Contract Accounts (CAs)**: These accounts do not have a corresponding private 
+key. These accounts are generated when you deploy your contract on blockchain. 
+You will see them referred to as just contracts in many places (instead of contract 
+accounts). Some key features of contract (accounts) are as follows:
+
+● They can send and receive Ether just like EOAs.
+
+● Unlike EOAs, they have code associated with them.
+
+● Transactions have to be triggered by an EOA or another contract.
+
+### Structure of Ethereum Accounts
+
+#### Interaction Between Ethereum Accounts
+
+The following points summarise the transactions in Ethereum:
+
+-  An EOA can send messages to other EOAs or to other CAs by creating and 
+signing a transaction using its private key. 
+-  An EOA can send messages to other EOAs or to other CAs by creating and 
+signing a transaction using its private key. 
+- But a message from an EOA to a CA activates the CA’s code, allowing it to 
+perform various actions (e.g., transfer tokens, write to internal storage, mint 
+new tokens, perform some calculation, create new contracts, etc.).
+- Unlike EOAs, CAs cannot initiate new transactions on their own.
+- Instead, CAs can only fire transactions in response to other transactions that 
+they have received (from an EOA or from another CA).
+- An action that occurs on the Ethereum blockchain is always set in motion by 
+transactions that are fired from EOAs.
+
+In Ethereum, the values of all the accounts are maintained independently by each 
+of the nodes inside the network. And they are all maintained logically as a single 
+shared state:
+
+- All of the accounts capture the snapshot of the blockchain at any particular 
+point in time and that goes to every block as an entity.
+- Whenever a new block is created, a state root is stored in the header of that 
+block.
+State root is the Merkle root of all the accounts at that moment. Simply put, 
+all the key–value pairs that represent an account together, form a Merkle 
+tree is known as state root.
+- This state root is captured by a block at the time of its creation.
+- Any change in the data would lead to the calculation of the Merkle tree all 
+over again to match the state root in the block. This is highly impossible, and 
+hence the immutability is maintained in the network. Along with state root, 
+the transaction root and the receipt root are also used to capture the state 
+of the network in every block.
+- By calculating and storing the roots mentioned above, Ethereum captures 
+the network state every time a new block is created (state root, transaction 
+root and receipt root).
+
+
+
+
+

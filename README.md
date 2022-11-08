@@ -210,7 +210,7 @@ Every block header also contains three important Trie structures for :
  
 These three roots together define the state of the Blockchain network at any given time.
 
-Whenever a new block is created, the network state is captured using these three roots. 
+Whenever a new block is created,the network state is captured using these three roots. 
 
 Hence, we can say that at the creation of every new block, the network state changes and the new state is defined by state Root, transaction Root and receipts Root at that instance.
 
